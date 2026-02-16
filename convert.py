@@ -215,7 +215,9 @@ def writeAnimation(parseData):
 	text = '      <AnimationList>\n'
 	for i in range(animationNum):
 		animationData = parseData.AnimationList(i)
-		text = text + '        <AnimationInfo Name="%s" StartIndex="%d" EndIndex="%d" />\n' %(animationData.Name(), animationData.StartIndex(), animationData.EndIndex())
+		text = text + '        <AnimationInfo Name="%s" StartIndex="%d" EndIndex="%d">\n' % (animationData.Name(), animationData.StartIndex(), animationData.EndIndex())
+		# Optionally add RenderColor here if needed in the future
+		text = text + '        </AnimationInfo>\n'
 	text += '      </AnimationList>\n'
 	writeFile(text)
 
